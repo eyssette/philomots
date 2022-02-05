@@ -6,17 +6,16 @@ export function About() {
   return (
     <div className="App-about">
       <p>
-        <i>hello wordl</i> is a remake of the word game{" "}
+        <i>Philomots</i> est une application faite par <a href="https://eyssette.github.io/">Cédric Eyssette</a>, professeur de philosophie, à partir du jeu opensource <i>hello wordl</i> un remake du jeu{" "}
         <a href="https://www.powerlanguage.co.uk/wordle/">
           <i>Wordle</i>
         </a>{" "}
-        by <a href="https://twitter.com/powerlanguish">powerlanguage</a>, which
-        I think is based on the TV show <i>Lingo</i>.
+        par <a href="https://twitter.com/powerlanguish">powerlanguage</a>
       </p>
       <p>
-        You get {maxGuesses} tries to guess a target word.
+        Vous avez {maxGuesses} essais pour deviner un mot.
         <br />
-        After each guess, you get Mastermind-style feedback.
+        Après chaque essai, vous aurez un feedback du type <i>Mastermind</i>
       </p>
       <hr />
       <Row
@@ -30,23 +29,22 @@ export function About() {
         ]}
       />
       <p>
-        <b>W</b> and <b>O</b> aren't in the target word at all.
+        <b>W</b> et <b>O</b> ne sont pas présents dans le mot à deviner.
       </p>
       <p>
-        <b className={"green-bg"}>R</b> is correct! The third letter is{" "}
+        <b className={"green-bg"}>R</b> est correct! La troisième lettre est {" "}
         <b className={"green-bg"}>R</b>
         .<br />
-        <strong>(There may still be a second R in the word.)</strong>
+        <strong>(Il y a peut-être un deuxième R dans le mot)</strong>
       </p>
       <p>
-        <b className={"yellow-bg"}>D</b> occurs <em>elsewhere</em> in the target
-        word.
+        <b className={"yellow-bg"}>D</b> se trouve <em>ailleurs</em> dans le mot à deviner.
         <br />
-        <strong>(Perhaps more than once. 🤔)</strong>
+        <strong>(Peut-être plus qu'une fois… 🤔)</strong>
       </p>
       <hr />
       <p>
-        Let's move the <b>D</b> in our next guess:
+        Passons à <b>D</b> dans notre essai suivant :
       </p>
       <Row
         rowState={RowState.LockedIn}
@@ -78,7 +76,7 @@ export function About() {
       <p>
         This game will be free and ad-free forever,
         <br />
-        but you can <a href="https://ko-fi.com/chordbug">buy me a coffee</a> if
+        but you can <a href="https://ko-fi.com/chordbug">buy a coffee</a> if
         you'd like.
       </p>
     </div>

@@ -74,9 +74,9 @@ function App() {
             fontStyle: difficulty > 1 ? "italic" : "inherit",
           }}
         >
-          hell
+          Phil
         </span>
-        o wordl
+        omots
       </h1>
       <div className="top-right">
         {page !== "game" ? (
@@ -97,7 +97,7 @@ function App() {
         }}
       >
         <a href={seed ? "?random" : "?seed=" + todaySeed}>
-          {seed ? "Random" : "Today's"}
+          {seed ? "Aléatoire" : "Mot du jour"}
         </a>
       </div>
       {page === "about" && <About />}

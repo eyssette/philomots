@@ -30,7 +30,7 @@ interface GameProps {
   keyboardLayout: string;
 }
 
-const targets = targetList.slice(0, targetList.indexOf("murky") + 1); // Words no rarer than this one
+const targets = targetList.slice(0, targetList.indexOf("zombies") + 1); // Words no rarer than this one
 const minLength = 4;
 const maxLength = 11;
 
@@ -96,8 +96,8 @@ function Game(props: GameProps) {
   });
   const [hint, setHint] = useState<string>(
     challengeError
-      ? `Invalid challenge string, playing random game.`
-      : `Make your first guess!`
+      ? `Code de jeu invalide : choisissez plutôt le mode de jeu aléatoire`
+      : `Proposez un mot !`
   );
   const currentSeedParams = () =>
     `?seed=${seed}&length=${wordLength}&game=${gameNumber}`;
@@ -173,11 +173,11 @@ function Game(props: GameProps) {
       setHint("");
     } else if (key === "Enter") {
       if (currentGuess.length !== wordLength) {
-        setHint("Too short");
+        setHint("Trop court !");
         return;
       }
       if (!dictionary.includes(currentGuess)) {
-        setHint("Not a valid word");
+        setHint("Ce n'est pas un mot valide");
         return;
       }
       for (const g of guesses) {
@@ -192,8 +192,8 @@ function Game(props: GameProps) {
       setCurrentGuess((guess) => "");
 
       const gameOver = (verbed: string) =>
-        `You ${verbed}! The answer was ${target.toUpperCase()}. (Enter to ${
-          challenge ? "play a random game" : "play again"
+        `You ${verbed}! La réponse était :  ${target.toUpperCase()}. (Entrée pour ${
+          challenge ? "jouer avec le mode de jeu : aléatoire" : "rejouer"
         })`;
 
       if (currentGuess === target) {
@@ -259,7 +259,7 @@ function Game(props: GameProps) {
   return (
     <div className="Game" style={{ display: props.hidden ? "none" : "block" }}>
       <div className="Game-options">
-        <label htmlFor="wordLength">Letters:</label>
+        <label htmlFor="wordLength">Nombre de lettres :</label>
         <input
           type="range"
           min={minLength}
@@ -279,7 +279,7 @@ function Game(props: GameProps) {
             setCurrentGuess("");
             setTarget(randomTarget(length));
             setWordLength(length);
-            setHint(`${length} letters`);
+            setHint(`${length} lettres`);
           }}
         ></input>
         <button
@@ -287,13 +287,13 @@ function Game(props: GameProps) {
           disabled={gameState !== GameState.Playing || guesses.length === 0}
           onClick={() => {
             setHint(
-              `The answer was ${target.toUpperCase()}. (Enter to play again)`
+              `La réponse était ${target.toUpperCase()}. (Entrée pour rejouer)`
             );
             setGameState(GameState.Lost);
             (document.activeElement as HTMLElement)?.blur();
           }}
         >
-          Give up
+          Solution !
         </button>
       </div>
       <table
@@ -320,18 +320,18 @@ function Game(props: GameProps) {
       />
       <div className="Game-seed-info">
         {challenge
-          ? "playing a challenge game"
+          ? "Mode de jeu : mot du jour"
           : seed
-          ? `${describeSeed(seed)} — length ${wordLength}, game ${gameNumber}`
-          : "playing a random game"}
+          ? `${describeSeed(seed)} — nombre de lettres : ${wordLength}, jeu ${gameNumber}`
+          : "Mode de jeu : aléatoire"}
       </div>
       <p>
         <button
           onClick={() => {
-            share("Link copied to clipboard!");
+            share("Lien copié dans le presse-papier!");
           }}
         >
-          Share a link to this game
+          Partager un lien vers ce jeu
         </button>{" "}
         {gameState !== GameState.Playing && (
           <button
@@ -340,7 +340,7 @@ function Game(props: GameProps) {
                 ? ["⬛", "🟦", "🟧"]
                 : ["⬛", "🟨", "🟩"];
               share(
-                "Result copied to clipboard!",
+                "Résultat copié dans le presse-papier",
                 guesses
                   .map((guess) =>
                     clue(guess, target)
