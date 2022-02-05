@@ -177,7 +177,7 @@ function Game(props: GameProps) {
         return;
       }
       if (!dictionary.includes(currentGuess)) {
-        setHint("Ce n'est pas un mot valide");
+        setHint("Ce n'est pas un terme ou un thème philosophique");
         return;
       }
       for (const g of guesses) {
