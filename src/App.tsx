@@ -74,9 +74,9 @@ function App() {
             fontStyle: difficulty > 1 ? "italic" : "inherit",
           }}
         >
-          Phil
+          Philo
         </span>
-        omots
+        mots
       </h1>
       <div className="top-right">
         {page !== "game" ? (

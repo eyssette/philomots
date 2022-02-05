@@ -258,6 +258,7 @@ function Game(props: GameProps) {
 
   return (
     <div className="Game" style={{ display: props.hidden ? "none" : "block" }}>
+      <p>Le mot à deviner est un terme ou un thème philosophique !</p>
       <div className="Game-options">
         <label htmlFor="wordLength">Nombre de lettres :</label>
         <input
@@ -324,6 +325,7 @@ function Game(props: GameProps) {
           : seed
           ? `${describeSeed(seed)} — nombre de lettres : ${wordLength}, jeu ${gameNumber}`
           : "Mode de jeu : aléatoire"}
+          <p>Jeu créé par <a href="https://eyssette.github.io/">Cédric Eyssette</a></p>
       </div>
       <p>
         <button

@@ -6,7 +6,7 @@ export function About() {
   return (
     <div className="App-about">
       <p>
-        <i>Philomots</i> est une application faite par <a href="https://eyssette.github.io/">Cédric Eyssette</a>, professeur de philosophie, à partir du jeu opensource <i>hello wordl</i> un remake du jeu{" "}
+        <i>Philomots</i> est une application faite par <a href="https://eyssette.github.io/">Cédric Eyssette</a>, professeur de philosophie, à partir du jeu opensource <a href="https://github.com/lynn/hello-wordl">hello wordl</a> un remake du jeu{" "}
         <a href="https://www.powerlanguage.co.uk/wordle/">
           <i>Wordle</i>
         </a>{" "}
