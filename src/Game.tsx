@@ -258,7 +258,7 @@ function Game(props: GameProps) {
 
   return (
     <div className="Game" style={{ display: props.hidden ? "none" : "block" }}>
-      <p>Le mot à deviner est un terme ou un thème philosophique !</p>
+      <p>Le mot à deviner est un terme <br/>ou un thème philosophique !</p>
       <div className="Game-options">
         <label htmlFor="wordLength">Nombre de lettres :</label>
         <input

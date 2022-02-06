@@ -97,7 +97,7 @@ function App() {
         }}
       >
         <a href={seed ? "?random" : "?seed=" + todaySeed}>
-          {seed ? "Aléatoire" : "Mot du jour"}
+          {seed ? "Aléatoire" : "Mots du jour"}
         </a>
       </div>
       {page === "about" && <About />}
