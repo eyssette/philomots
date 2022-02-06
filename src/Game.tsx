@@ -326,7 +326,7 @@ function Game(props: GameProps) {
           ? `${describeSeed(seed)} — nombre de lettres : ${wordLength}, jeu ${gameNumber}`
           : "Mode de jeu : aléatoire"}
           <p>Jeu créé par <a href="https://eyssette.github.io/">Cédric Eyssette</a></p>
-          <p className="smaller">N'hésitez pas à me proposer l'ajout<br/> d'un terme ou thème philosophique via <a href="https://twitter.com/Cedric_Eyssette">Twitter</a></p>
+          <p className="smaller">N'hésitez pas à me proposer l'ajout d'un<br/> terme ou thème philosophique via <a href="https://twitter.com/Cedric_Eyssette">Twitter</a></p>
       </div>
       <p>
         <button
