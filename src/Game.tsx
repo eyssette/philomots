@@ -132,7 +132,7 @@ function Game(props: GameProps) {
     const url = seed
       ? window.location.origin + window.location.pathname + currentSeedParams()
       : getChallengeUrl(target);
-    const body = url + (text ? "\n\n" + text : "");
+    const body = url + ' #philomots ' + (text ? "\n\n" + text : "");
     if (
       /android|iphone|ipad|ipod|webos/i.test(navigator.userAgent) &&
       !/firefox/i.test(navigator.userAgent)
@@ -177,7 +177,7 @@ function Game(props: GameProps) {
         return;
       }
       if (!dictionary.includes(currentGuess)) {
-        setHint("Ce n'est pas un terme ou un thème philosophique");
+        setHint('Ce n\'est pas un terme ou un thème philosophique');
         return;
       }
       for (const g of guesses) {
@@ -192,15 +192,15 @@ function Game(props: GameProps) {
       setCurrentGuess((guess) => "");
 
       const gameOver = (verbed: string) =>
-        `You ${verbed}! La réponse était :  ${target.toUpperCase()}. (Entrée pour ${
+        `Vous avez ${verbed}! La réponse était :  ${target.toUpperCase()}. (Entrée pour ${
           challenge ? "jouer avec le mode de jeu : aléatoire" : "rejouer"
         })`;
 
       if (currentGuess === target) {
-        setHint(gameOver("won"));
+        setHint(gameOver("gagné"));
         setGameState(GameState.Won);
       } else if (guesses.length + 1 === props.maxGuesses) {
-        setHint(gameOver("lost"));
+        setHint(gameOver("perdu"));
         setGameState(GameState.Lost);
       } else {
         setHint("");
@@ -326,6 +326,7 @@ function Game(props: GameProps) {
           ? `${describeSeed(seed)} — nombre de lettres : ${wordLength}, jeu ${gameNumber}`
           : "Mode de jeu : aléatoire"}
           <p>Jeu créé par <a href="https://eyssette.github.io/">Cédric Eyssette</a></p>
+          <p className="smaller">N'hésitez pas à me proposer l'ajout<br/> d'un terme ou thème philosophique via <a href="https://twitter.com/Cedric_Eyssette">Twitter</a></p>
       </div>
       <p>
         <button
@@ -353,7 +354,7 @@ function Game(props: GameProps) {
               );
             }}
           >
-            Share emoji results
+            Partager le résumé de la partie
           </button>
         )}
       </p>
