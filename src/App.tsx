@@ -3,6 +3,7 @@ import { maxGuesses, seed, urlParam } from "./util";
 import Game from "./Game";
 import { useEffect, useState } from "react";
 import { About } from "./About";
+import { Help } from "./Help";
 
 function useSetting<T>(
   key: string,
@@ -29,7 +30,7 @@ function useSetting<T>(
 const todaySeed = new Date().toISOString().replace(/-/g, "").slice(0, 8);
 
 function App() {
-  type Page = "game" | "about" | "settings";
+  type Page = "game" | "about" | "settings" | "help";
   const [page, setPage] = useState<Page>("game");
   const prefersDark =
     window.matchMedia &&
@@ -83,6 +84,7 @@ function App() {
           link("❌", "Close", "game")
         ) : (
           <>
+            {link("💡", "Help", "help")}
             {link("❓", "About", "about")}
             {link("⚙️", "Settings", "settings")}
           </>
@@ -100,6 +102,7 @@ function App() {
           {seed ? "Aléatoire" : "Mots du jour"}
         </a>
       </div>
+      {page === "help" && <Help />}
       {page === "about" && <About />}
       {page === "settings" && (
         <div className="Settings">

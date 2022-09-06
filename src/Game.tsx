@@ -16,6 +16,7 @@ import {
 } from "./util";
 import { decode, encode } from "./base64";
 
+
 enum GameState {
   Playing,
   Won,
@@ -177,7 +178,7 @@ function Game(props: GameProps) {
         return;
       }
       if (!dictionary.includes(currentGuess)) {
-        setHint('Ce n\'est pas un terme ou un thème philosophique');
+        setHint('Ce n\'est pas un terme ou un thème philosophique.');
         return;
       }
       for (const g of guesses) {
@@ -258,7 +259,7 @@ function Game(props: GameProps) {
 
   return (
     <div className="Game" style={{ display: props.hidden ? "none" : "block" }}>
-      <p>Le mot à deviner est un terme <br/>ou un thème philosophique !</p>
+      <ul><li>Le mot à deviner est un terme ou un thème philosophique !</li><li>Cliquez sur 💡 si vous bloquez</li></ul>
       <div className="Game-options">
         <label htmlFor="wordLength">Nombre de lettres :</label>
         <input
