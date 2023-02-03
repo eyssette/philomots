@@ -74,10 +74,9 @@ export function About() {
         <a href="https://twitter.com/chordbug">@chordbug</a>.
       </p>
       <p>
-        This game will be free and ad-free forever,
+        Ce jeu est libre et gratuit, sans publicité. 
         <br />
-        but you can <a href="https://ko-fi.com/chordbug">buy a coffee</a> if
-        you'd like.
+        Vous pouvez cependant <a href="https://ko-fi.com/chordbug">offrir un café</a> à l'auteur d'<i>hello wordl</i> si vous le souhaitez. 
       </p>
     </div>
   );
